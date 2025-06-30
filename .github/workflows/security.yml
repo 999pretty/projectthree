@@ -33,7 +33,7 @@ jobs:
         continue-on-error: true  # Don't fail the build, but report issues
 
       - name: Run ESLint security checks
-        run: cd apps/web && pnpm security:lint
+        run: cd apps/web && NODE_OPTIONS="--experimental-json-modules" pnpm eslint . --config ../../eslint.config.mjs
 
       - name: Run CodeQL Analysis
         uses: github/codeql-action/init@v3
