@@ -181,7 +181,8 @@ const PricingPlan = ({
 				</div>
 
 				<div>
-					{price ? <strong
+					{price ? (
+						<strong
 							className="block font-medium text-2xl lg:text-3xl"
 							data-test="price-table-plan-price"
 						>
@@ -208,7 +209,8 @@ const PricingPlan = ({
 									{t("pricing.perSeat")}
 								</span>
 							) : null}
-						</strong> : null}
+						</strong>
+					) : null}
 
 					<PlanActionButton
 						isEnterprise={isEnterprise}
