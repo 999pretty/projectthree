@@ -1,5 +1,4 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+#!/bin/sh
 
 # Colors for output
 RED='\033[0;31m'
@@ -8,30 +7,23 @@ NC='\033[0m' # No Color
 
 echo "Running pre-push checks..."
 
-# Run type checking and tests in parallel and capture their exit codes
-pnpm tsc --noEmit > /tmp/tsc.log 2>&1 & TSC_PID=$!
-pnpm test > /tmp/test.log 2>&1 & TEST_PID=$!
+# Run type checking
+echo "Running type check..."
+if pnpm --filter web type-check; then
+    echo "${GREEN}Type checking passed${NC}"
+else
+    echo "${RED}Type checking failed${NC}"
+    exit 1
+fi
 
-# Wait for both processes and capture exit codes
-wait $TSC_PID
-TSC_EXIT_CODE=$?
-wait $TEST_PID
-TEST_EXIT_CODE=$?
+# Run tests
+echo "Running tests..."
+if pnpm test; then
+    echo "${GREEN}Tests passed${NC}"
+else
+    echo "${RED}Tests failed${NC}"
+    exit 1
+fi
 
-# Function to display logs if there's an error
-display_logs_if_error() {
-    if [ $1 -ne 0 ]; then
-        echo "${RED}$2 failed:${NC}"
-        cat $3
-        return 1
-    else
-        echo "${GREEN}$2 passed${NC}"
-        return 0
-    fi
-}
-
-# Check results
-display_logs_if_error $TSC_EXIT_CODE "Type checking" /tmp/tsc.log || exit 1
-display_logs_if_error $TEST_EXIT_CODE "Tests" /tmp/test.log || exit 1
-
-echo "${GREEN}All pre-push checks passed!${NC}" 
+echo "${GREEN}All pre-push checks passed!${NC}"
+exit 0 
