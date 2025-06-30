@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+@import "@repo/tailwind-config/theme.css";
+@import "@repo/tailwind-config/tailwind-animate.css";
+@import "../styles/fonts.css";
+
+pre.shiki {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+#nd-sidebar {
+  background-color: var(--color-card) !important;
+  top: 4.5rem;
+  height: calc(100dvh - 4.5rem) !important;
+}
+
+@media (max-width: 768px) {
+  #nd-sidebar {
+    height: auto !important;
+  }
+}
+
+#nd-sidebar button[data-search-full] {
+  background-color: transparent;
+}
+
+#nd-page .prose h1 a,
+#nd-page .prose h2 a,
+#nd-page .prose h3 a,
+#nd-page .prose h4 a,
+#nd-page .prose h5 a,
+#nd-page .prose h6 a {
+  text-decoration: none !important;
+}
+
+div[role="tablist"].bg-secondary {
+  background-color: var(--color-muted) !important;
+}
+
+input[cmdk-input] {
+  border: none;
+}
+
+input[cmdk-input]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}

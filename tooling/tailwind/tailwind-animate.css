@@ -1,0 +1,177 @@
+/**
+ * TailwindCSS v4.0 compatible replacement for `tailwindcss-animate`.
+ *
+ * WARNING: The asterisks are not supported by some formatters and linters. You
+ * might want to exclude this file from formatters and linters for now.
+ *
+ * @author Luca Bosin <https://github.com/Wombosvideo>
+ * @license MIT
+ */
+
+@layer base {
+  :root {
+    --animation-delay-0: 0s;
+    --animation-delay-75: 75ms;
+    --animation-delay-100: 0.1s;
+    --animation-delay-150: 0.15s;
+    --animation-delay-200: 0.2s;
+    --animation-delay-300: 0.3s;
+    --animation-delay-500: 0.5s;
+    --animation-delay-700: 0.7s;
+    --animation-delay-1000: 1s;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation-duration: 150ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --tw-enter-opacity: initial;
+    --tw-enter-scale: initial;
+    --tw-enter-rotate: initial;
+    --tw-enter-translate-x: initial;
+    --tw-enter-translate-y: initial;
+  }
+
+  .animate-out {
+    animation-duration: 150ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --tw-exit-opacity: initial;
+    --tw-exit-scale: initial;
+    --tw-exit-rotate: initial;
+    --tw-exit-translate-x: initial;
+    --tw-exit-translate-y: initial;
+  }
+
+  .fade-in {
+    --tw-enter-opacity: 0;
+    animation-name: fade-in;
+  }
+
+  .fade-out {
+    --tw-exit-opacity: 0;
+    animation-name: fade-out;
+  }
+
+  .zoom-in {
+    --tw-enter-scale: 0.95;
+    animation-name: zoom-in;
+  }
+
+  .zoom-out {
+    --tw-exit-scale: 0.95;
+    animation-name: zoom-out;
+  }
+
+  .slide-in-from-top {
+    --tw-enter-translate-y: -100%;
+    animation-name: slide-in-from-top;
+  }
+
+  .slide-in-from-bottom {
+    --tw-enter-translate-y: 100%;
+    animation-name: slide-in-from-bottom;
+  }
+
+  .slide-in-from-left {
+    --tw-enter-translate-x: -100%;
+    animation-name: slide-in-from-left;
+  }
+
+  .slide-in-from-right {
+    --tw-enter-translate-x: 100%;
+    animation-name: slide-in-from-right;
+  }
+
+  .slide-out-to-top {
+    --tw-exit-translate-y: -100%;
+    animation-name: slide-out-to-top;
+  }
+
+  .slide-out-to-bottom {
+    --tw-exit-translate-y: 100%;
+    animation-name: slide-out-to-bottom;
+  }
+
+  .slide-out-to-left {
+    --tw-exit-translate-x: -100%;
+    animation-name: slide-out-to-left;
+  }
+
+  .slide-out-to-right {
+    --tw-exit-translate-x: 100%;
+    animation-name: slide-out-to-right;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: var(--tw-enter-opacity, 1);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: var(--tw-exit-opacity, 1);
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(var(--tw-enter-scale, 1));
+  }
+}
+
+@keyframes zoom-out {
+  to {
+    transform: scale(var(--tw-exit-scale, 1));
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    transform: translateY(var(--tw-enter-translate-y, 0));
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(var(--tw-enter-translate-y, 0));
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(var(--tw-enter-translate-x, 0));
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(var(--tw-enter-translate-x, 0));
+  }
+}
+
+@keyframes slide-out-to-top {
+  to {
+    transform: translateY(var(--tw-exit-translate-y, 0));
+  }
+}
+
+@keyframes slide-out-to-bottom {
+  to {
+    transform: translateY(var(--tw-exit-translate-y, 0));
+  }
+}
+
+@keyframes slide-out-to-left {
+  to {
+    transform: translateX(var(--tw-exit-translate-x, 0));
+  }
+}
+
+@keyframes slide-out-to-right {
+  to {
+    transform: translateX(var(--tw-exit-translate-x, 0));
+  }
+}

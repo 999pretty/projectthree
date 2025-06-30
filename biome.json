@@ -1,0 +1,153 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"lineWidth": 80
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"suspicious": {
+				"noExplicitAny": "off",
+				"noArrayIndexKey": "error"
+			},
+			"complexity": {
+				"noForEach": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "error",
+				"useHookAtTopLevel": "error",
+				"noUnusedImports": "error",
+				"noUnusedFunctionParameters": "warn",
+				"noVoidTypeReturn": "error"
+			},
+			"style": {
+				"noUnusedTemplateLiteral": {
+					"level": "error"
+				},
+				"noNonNullAssertion": "off",
+				"useBlockStatements": "warn",
+				"useFragmentSyntax": "error",
+				"noDefaultExport": "error",
+				"useImportType": "error",
+				"useShorthandArrayType": "error",
+				"useTemplate": "error",
+				"useConst": "error",
+				"noVar": "error",
+				"useNumberNamespace": "error"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "warn",
+				"useKeyWithClickEvents": "error",
+				"useButtonType": "error"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "error",
+				"noGlobalEval": "error"
+			},
+			"nursery": {
+				"useSortedClasses": {
+					"level": "error",
+					"options": {
+						"attributes": ["className", "class"],
+						"functions": ["clsx", "cva", "tw", "cn"]
+					}
+				}
+			}
+		}
+	},
+	"organizeImports": {
+		"enabled": false
+	},
+	"files": {
+		"ignore": [
+			"./packages/database/prisma/zod/index.ts",
+			"**/tests/**/*.ts",
+			"**/tests/**/*.tsx",
+			"**/tests-examples/**/*",
+			"**/playwright/**/*",
+			"**/*.spec.ts",
+			"**/*.test.ts",
+			"**/*.spec.tsx",
+			"**/*.test.tsx",
+			"playwright.config.ts",
+			"**/test-results/**/*",
+			"**/playwright-report/**/*",
+			"**/postcss.config.cjs"
+		]
+	},
+	"overrides": [
+		{
+			"include": [
+				"**/page.tsx",
+				"**/layout.tsx",
+				"**/not-found.tsx",
+				"**/loading.tsx",
+				"**/error.tsx",
+				"**/global-error.tsx",
+				"**/robots.ts",
+				"**/sitemap.ts",
+				"**/middleware.ts",
+				"*.config.ts",
+				"*.config.js",
+				"*.config.mjs",
+				"**/*.mjs"
+			],
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
+		},
+		{
+			"include": [
+				"apps/web/app/**/*",
+				"apps/web/components/**/*",
+				"apps/web/styles/**/*",
+				"apps/web/tests/**/*",
+				"apps/web/types/**/*",
+				"apps/web/utils/**/*",
+				"scripts/**/*",
+				"tooling/**/*"
+			],
+			"linter": {
+				"rules": {
+					"style": {
+						"useFilenamingConvention": {
+							"level": "error",
+							"options": {
+								"filenameCases": ["kebab-case"],
+								"strictCase": true,
+								"requireAscii": true
+							}
+						}
+					}
+				}
+			}
+		}
+	],
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"semicolons": "always"
+		}
+	},
+	"css": {
+		"formatter": {
+			"enabled": true,
+			"indentStyle": "space",
+			"indentWidth": 2,
+			"lineWidth": 80
+		}
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"defaultBranch": "main",
+		"useIgnoreFile": true
+	}
+}

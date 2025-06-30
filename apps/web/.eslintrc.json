@@ -1,0 +1,30 @@
+{
+	"extends": [
+		"next/core-web-vitals",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:security/recommended",
+		"plugin:sonarjs/recommended",
+		"plugin:react-hooks/recommended"
+	],
+	"plugins": ["@typescript-eslint", "security", "sonarjs", "react-hooks"],
+	"rules": {
+		"@typescript-eslint/no-unused-vars": "error",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"security/detect-object-injection": "warn",
+		"security/detect-non-literal-regexp": "warn",
+		"security/detect-unsafe-regex": "error",
+		"security/detect-buffer-noassert": "error",
+		"security/detect-eval-with-expression": "error",
+		"security/detect-no-csrf-before-method-override": "error",
+		"security/detect-possible-timing-attacks": "warn",
+		"sonarjs/cognitive-complexity": ["error", 15],
+		"sonarjs/no-duplicate-string": ["error", 5],
+		"sonarjs/no-redundant-boolean": "error",
+		"sonarjs/no-small-switch": "error",
+		"sonarjs/prefer-immediate-return": "error",
+		"react-hooks/prefer-hooks": "error",
+		"react-hooks/max-deps": ["warn", { "max": 8 }],
+		"react-hooks/prefer-memo": "warn",
+		"react-hooks/no-inline-functions": "warn"
+	}
+}

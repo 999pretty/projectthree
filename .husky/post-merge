@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check if package.json or pnpm-lock.yaml has changed
+if git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep --quiet "package.json\|pnpm-lock.yaml"; then
+    echo "📦 Dependencies changed. Installing updates..."
+    pnpm install
+    echo "✅ Dependencies updated!"
+fi 

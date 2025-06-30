@@ -1,0 +1,18 @@
+{
+	"extends": "@repo/tsconfig/base.json",
+	"exclude": [
+		"node_modules",
+		"**/node_modules",
+		"dist",
+		"build",
+		"apps/web/playwright-report",
+		"apps/web/test-results",
+		"apps/web/coverage",
+		"eslint.config.mjs",
+		"apps/web/postcss.config.cjs",
+		"commitlint.config.js",
+		"scripts/prevent-large-files.js",
+		".lintstagedrc.js",
+		".releaserc.json"
+	]
+}
