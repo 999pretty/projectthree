@@ -181,8 +181,7 @@ const PricingPlan = ({
 				</div>
 
 				<div>
-					{price && (
-						<strong
+					{price ? <strong
 							className="block font-medium text-2xl lg:text-3xl"
 							data-test="price-table-plan-price"
 						>
@@ -209,18 +208,17 @@ const PricingPlan = ({
 									{t("pricing.perSeat")}
 								</span>
 							) : null}
-						</strong>
-					)}
+						</strong> : null}
 
 					<PlanActionButton
 						isEnterprise={isEnterprise}
 						loading={loading}
-						planId={planId}
-						recommended={recommended}
-						onSelectPlan={onSelectPlan}
-						price={price}
-						userId={userId}
 						organizationId={organizationId}
+						planId={planId}
+						price={price}
+						recommended={recommended}
+						userId={userId}
+						onSelectPlan={onSelectPlan}
 					/>
 				</div>
 			</div>
@@ -314,12 +312,12 @@ export const PricingTable = ({
 					.map(([planId, plan]) => (
 						<PricingPlan
 							key={planId}
-							planId={planId}
-							plan={plan}
-							loading={loading}
 							interval={interval}
+							loading={loading}
 							localeCurrency={localeCurrency}
 							organizationId={organizationId}
+							plan={plan}
+							planId={planId}
 							userId={userId}
 							onSelectPlan={onSelectPlan}
 						/>
