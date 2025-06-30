@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: '0 0 * * 0'  # Run weekly
 
+permissions:
+  security-events: write
+  actions: read
+  contents: read
+
 jobs:
   security:
     name: Security Scan
@@ -35,13 +40,16 @@ jobs:
       - name: Run ESLint security checks
         run: cd apps/web && NODE_OPTIONS="--experimental-json-modules" pnpm eslint . --config ../../eslint.config.mjs
 
-      - name: Run CodeQL Analysis
+      - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: javascript, typescript
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript"
+          upload: true
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
@@ -49,7 +57,8 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-      - name: Upload security scan results
+      - name: Upload Snyk results
         uses: github/codeql-action/upload-sarif@v3
+        if: always()
         with:
           sarif_file: snyk.sarif 
