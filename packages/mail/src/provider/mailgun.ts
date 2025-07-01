@@ -27,9 +27,9 @@ export const send: SendEmailHandler = async ({ to, subject, html, text }) => {
 		{
 			method: "POST",
 			headers: {
-				Authorization: `Basic ${Buffer.from(
-					`api:${mailgunApiKey}`,
-				).toString("base64")}`,
+				Authorization: `Basic ${Buffer.from(`api:${mailgunApiKey}`).toString(
+					"base64",
+				)}`,
 			},
 			body,
 		},

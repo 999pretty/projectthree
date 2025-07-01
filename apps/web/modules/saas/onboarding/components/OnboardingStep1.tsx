@@ -79,9 +79,7 @@ export const OnboardingStep1 = ({
 						name="name"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>
-									{t("onboarding.account.name")}
-								</FormLabel>
+								<FormLabel>{t("onboarding.account.name")}</FormLabel>
 								<FormControl>
 									<Input {...field} />
 								</FormControl>
@@ -91,9 +89,7 @@ export const OnboardingStep1 = ({
 
 					<FormItem className="flex items-center justify-between gap-4">
 						<div>
-							<FormLabel>
-								{t("onboarding.account.avatar")}
-							</FormLabel>
+							<FormLabel>{t("onboarding.account.avatar")}</FormLabel>
 
 							<FormDescription>
 								{t("onboarding.account.avatarDescription")}

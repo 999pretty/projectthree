@@ -168,13 +168,10 @@ export const webhookHandler: WebhookHandler = async (req: Request) => {
 					type: "SUBSCRIPTION",
 				});
 
-				await setCustomerIdToEntity(
-					String(data.attributes.customer_id),
-					{
-						organizationId: customData.organization_id,
-						userId: customData.user_id,
-					},
-				);
+				await setCustomerIdToEntity(String(data.attributes.customer_id), {
+					organizationId: customData.organization_id,
+					userId: customData.user_id,
+				});
 
 				break;
 			}
@@ -212,13 +209,10 @@ export const webhookHandler: WebhookHandler = async (req: Request) => {
 					type: "ONE_TIME",
 				});
 
-				await setCustomerIdToEntity(
-					String(data.attributes.customer_id),
-					{
-						organizationId: customData.organization_id,
-						userId: customData.user_id,
-					},
-				);
+				await setCustomerIdToEntity(String(data.attributes.customer_id), {
+					organizationId: customData.organization_id,
+					userId: customData.user_id,
+				});
 
 				break;
 			}

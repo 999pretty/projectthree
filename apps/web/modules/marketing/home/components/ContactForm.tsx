@@ -51,9 +51,7 @@ export const ContactForm = () => {
 			{form.formState.isSubmitSuccessful ? (
 				<Alert variant="success">
 					<MailCheckIcon />
-					<AlertTitle>
-						{t("contact.form.notifications.success")}
-					</AlertTitle>
+					<AlertTitle>{t("contact.form.notifications.success")}</AlertTitle>
 				</Alert>
 			) : (
 				<Form {...form}>
@@ -64,9 +62,7 @@ export const ContactForm = () => {
 						{form.formState.errors.root?.message ? (
 							<Alert variant="error">
 								<MailIcon />
-								<AlertTitle>
-									{form.formState.errors.root.message}
-								</AlertTitle>
+								<AlertTitle>{form.formState.errors.root.message}</AlertTitle>
 							</Alert>
 						) : null}
 
@@ -75,9 +71,7 @@ export const ContactForm = () => {
 							name="name"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>
-										{t("contact.form.name")}
-									</FormLabel>
+									<FormLabel>{t("contact.form.name")}</FormLabel>
 									<FormControl>
 										<Input {...field} />
 									</FormControl>
@@ -91,9 +85,7 @@ export const ContactForm = () => {
 							name="email"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>
-										{t("contact.form.email")}
-									</FormLabel>
+									<FormLabel>{t("contact.form.email")}</FormLabel>
 									<FormControl>
 										<Input {...field} />
 									</FormControl>
@@ -107,9 +99,7 @@ export const ContactForm = () => {
 							name="message"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>
-										{t("contact.form.message")}
-									</FormLabel>
+									<FormLabel>{t("contact.form.message")}</FormLabel>
 									<FormControl>
 										<Textarea {...field} />
 									</FormControl>

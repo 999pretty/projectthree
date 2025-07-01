@@ -7,8 +7,7 @@ import { Button } from "@ui/components/button";
 import { useCookieConsent } from "@shared/hooks/cookie-consent";
 
 export const ConsentBanner = () => {
-	const { userHasConsented, allowCookies, declineCookies } =
-		useCookieConsent();
+	const { userHasConsented, allowCookies, declineCookies } = useCookieConsent();
 	const [mounted, setMounted] = useState(false);
 	useEffect(() => {
 		setMounted(true);
@@ -28,8 +27,8 @@ export const ConsentBanner = () => {
 				<CookieIcon className="mt-1 block size-6 shrink-0 text-5xl text-primary/60" />
 				<div>
 					<p className="text-sm leading-normal">
-						This site doesn&apos;t use cookies yet, but we added
-						this banner to demo it to you.
+						This site doesn&apos;t use cookies yet, but we added this banner to
+						demo it to you.
 					</p>
 					<div className="mt-4 flex gap-2">
 						<Button
@@ -39,10 +38,7 @@ export const ConsentBanner = () => {
 						>
 							Decline
 						</Button>
-						<Button
-							className="flex-1"
-							onClick={() => allowCookies()}
-						>
+						<Button className="flex-1" onClick={() => allowCookies()}>
 							Allow
 						</Button>
 					</div>

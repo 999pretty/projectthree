@@ -100,10 +100,9 @@ export const SignupForm = ({
 			}
 
 			if (invitationOnlyMode) {
-				const { error } =
-					await authClient.organization.acceptInvitation({
-						invitationId,
-					});
+				const { error } = await authClient.organization.acceptInvitation({
+					invitationId,
+				});
 
 				if (error) {
 					console.error("Invitation acceptance error:", error);
@@ -129,16 +128,12 @@ export const SignupForm = ({
 			<h1 className="font-bold text-xl md:text-2xl">
 				{t("auth.signup.title")}
 			</h1>
-			<p className="mt-1 mb-6 text-foreground/60">
-				{t("auth.signup.message")}
-			</p>
+			<p className="mt-1 mb-6 text-foreground/60">{t("auth.signup.message")}</p>
 
 			{form.formState.isSubmitSuccessful && !invitationOnlyMode ? (
 				<Alert variant="success">
 					<MailboxIcon />
-					<AlertTitle>
-						{t("auth.signup.hints.verifyEmail")}
-					</AlertTitle>
+					<AlertTitle>{t("auth.signup.hints.verifyEmail")}</AlertTitle>
 				</Alert>
 			) : (
 				<>
@@ -151,8 +146,7 @@ export const SignupForm = ({
 							className="flex flex-col items-stretch gap-4"
 							onSubmit={form.handleSubmit(onSubmit)}
 						>
-							{form.formState.isSubmitted &&
-							form.formState.errors.root ? (
+							{form.formState.isSubmitted && form.formState.errors.root ? (
 								<Alert variant="error">
 									<AlertTriangleIcon />
 									<AlertDescription>
@@ -166,9 +160,7 @@ export const SignupForm = ({
 								name="name"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>
-											{t("auth.signup.name")}
-										</FormLabel>
+										<FormLabel>{t("auth.signup.name")}</FormLabel>
 										<FormControl>
 											<Input {...field} />
 										</FormControl>
@@ -182,9 +174,7 @@ export const SignupForm = ({
 								name="email"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>
-											{t("auth.signup.email")}
-										</FormLabel>
+										<FormLabel>{t("auth.signup.email")}</FormLabel>
 										<FormControl>
 											<Input
 												{...field}
@@ -202,29 +192,19 @@ export const SignupForm = ({
 								name="password"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>
-											{t("auth.signup.password")}
-										</FormLabel>
+										<FormLabel>{t("auth.signup.password")}</FormLabel>
 										<FormControl>
 											<div className="relative">
 												<Input
 													className="pr-10"
-													type={
-														showPassword
-															? "text"
-															: "password"
-													}
+													type={showPassword ? "text" : "password"}
 													{...field}
 													autoComplete="new-password"
 												/>
 												<button
 													className="absolute inset-y-0 right-0 flex items-center pr-4 text-primary text-xl"
 													type="button"
-													onClick={() =>
-														setShowPassword(
-															!showPassword,
-														)
-													}
+													onClick={() => setShowPassword(!showPassword)}
 												>
 													{showPassword ? (
 														<EyeOffIcon className="size-4" />
@@ -245,8 +225,7 @@ export const SignupForm = ({
 						</form>
 					</Form>
 
-					{config.auth.enableSignup &&
-					config.auth.enableSocialLogin ? (
+					{config.auth.enableSignup && config.auth.enableSocialLogin ? (
 						<>
 							<div className="relative my-6 h-4">
 								<hr className="relative top-2" />
@@ -256,16 +235,12 @@ export const SignupForm = ({
 							</div>
 
 							<div className="grid grid-cols-1 items-stretch gap-2 sm:grid-cols-2">
-								{Object.keys(oAuthProviders).map(
-									(providerId) => (
-										<SocialSigninButton
-											key={providerId}
-											provider={
-												providerId as OAuthProvider
-											}
-										/>
-									),
-								)}
+								{Object.keys(oAuthProviders).map((providerId) => (
+									<SocialSigninButton
+										key={providerId}
+										provider={providerId as OAuthProvider}
+									/>
+								))}
 							</div>
 						</>
 					) : null}

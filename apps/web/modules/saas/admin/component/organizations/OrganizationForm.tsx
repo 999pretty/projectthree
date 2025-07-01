@@ -85,9 +85,7 @@ export const OrganizationForm = ({
 			toast.success(t("admin.organizations.form.notifications.success"));
 
 			if (!organization) {
-				router.replace(
-					getAdminPath(`/organizations/${newOrganization.id}`),
-				);
+				router.replace(getAdminPath(`/organizations/${newOrganization.id}`));
 			}
 		} catch (error) {
 			if (process.env.NODE_ENV === "development") {
@@ -109,18 +107,13 @@ export const OrganizationForm = ({
 				</CardHeader>
 				<CardContent>
 					<Form {...form}>
-						<form
-							className="grid grid-cols-1 gap-4"
-							onSubmit={onSubmit}
-						>
+						<form className="grid grid-cols-1 gap-4" onSubmit={onSubmit}>
 							<FormField
 								control={form.control}
 								name="name"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>
-											{t("admin.organizations.form.name")}
-										</FormLabel>
+										<FormLabel>{t("admin.organizations.form.name")}</FormLabel>
 										<FormControl>
 											<Input {...field} />
 										</FormControl>
@@ -147,9 +140,7 @@ export const OrganizationForm = ({
 
 			{organization ? (
 				<>
-					<OrganizationMembersBlock
-						organizationId={organization.id}
-					/>
+					<OrganizationMembersBlock organizationId={organization.id} />
 					<InviteMemberForm organizationId={organization.id} />
 				</>
 			) : null}

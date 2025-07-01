@@ -35,9 +35,7 @@ export const OrganizationMembersBlock = ({
 					<OrganizationMembersList organizationId={organizationId} />
 				</TabsContent>
 				<TabsContent value="invitations">
-					<OrganizationInvitationsList
-						organizationId={organizationId}
-					/>
+					<OrganizationInvitationsList organizationId={organizationId} />
 				</TabsContent>
 			</Tabs>
 		</SettingsItem>

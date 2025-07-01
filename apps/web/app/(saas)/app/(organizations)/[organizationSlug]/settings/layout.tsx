@@ -65,18 +65,12 @@ export default async function SettingsLayout({
 							{
 								title: t("settings.menu.organization.billing"),
 								href: `${organizationSettingsBasePath}/billing`,
-								icon: (
-									<CreditCardIcon className="size-4 opacity-50" />
-								),
+								icon: <CreditCardIcon className="size-4 opacity-50" />,
 							},
 							{
-								title: t(
-									"settings.menu.organization.dangerZone",
-								),
+								title: t("settings.menu.organization.dangerZone"),
 								href: `${organizationSettingsBasePath}/danger-zone`,
-								icon: (
-									<TriangleAlertIcon className="size-4 opacity-50" />
-								),
+								icon: <TriangleAlertIcon className="size-4 opacity-50" />,
 							},
 						]
 					: []),
@@ -90,9 +84,7 @@ export default async function SettingsLayout({
 				subtitle={t("organizations.settings.subtitle")}
 				title={t("organizations.settings.title")}
 			/>
-			<SidebarContentLayout
-				sidebar={<SettingsMenu menuItems={menuItems} />}
-			>
+			<SidebarContentLayout sidebar={<SettingsMenu menuItems={menuItems} />}>
 				{children}
 			</SidebarContentLayout>
 		</>

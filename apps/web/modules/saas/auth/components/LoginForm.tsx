@@ -96,7 +96,8 @@ const LoginFormFields = ({
 				)}
 			/>
 
-			{config.auth.enablePasswordLogin && mode === "password" ? <FormField
+			{config.auth.enablePasswordLogin && mode === "password" ? (
+				<FormField
 					control={form.control}
 					name="password"
 					render={({ field }) => (
@@ -133,7 +134,8 @@ const LoginFormFields = ({
 							</FormControl>
 						</FormItem>
 					)}
-				/> : null}
+				/>
+			) : null}
 		</>
 	);
 };
@@ -159,22 +161,25 @@ const SocialLoginSection = ({
 			</div>
 
 			<div className="grid grid-cols-1 items-stretch gap-2 sm:grid-cols-2">
-				{config.auth.enableSignup &&
-					config.auth.enableSocialLogin ? Object.keys(oAuthProviders).map((providerId) => (
-						<SocialSigninButton
-							key={providerId}
-							provider={providerId as OAuthProvider}
-						/>
-					)) : null}
+				{config.auth.enableSignup && config.auth.enableSocialLogin
+					? Object.keys(oAuthProviders).map((providerId) => (
+							<SocialSigninButton
+								key={providerId}
+								provider={providerId as OAuthProvider}
+							/>
+						))
+					: null}
 
-				{config.auth.enablePasskeys ? <Button
+				{config.auth.enablePasskeys ? (
+					<Button
 						className="w-full sm:col-span-2"
 						variant="light"
 						onClick={() => signInWithPasskey()}
 					>
 						<KeyIcon className="mr-1.5 size-4 text-primary" />
 						{t("auth.login.loginWithPasskey")}
-					</Button> : null}
+					</Button>
+				) : null}
 			</div>
 		</>
 	);
@@ -290,18 +295,21 @@ export const LoginForm = () => {
 
 			<Form {...form}>
 				<form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
-					{config.auth.enableMagicLink && config.auth.enablePasswordLogin ? <LoginModeSwitch
+					{config.auth.enableMagicLink && config.auth.enablePasswordLogin ? (
+						<LoginModeSwitch
 							activeMode={form.getValues("mode") as LoginMode}
 							onChange={(mode: string) =>
 								form.setValue("mode", mode as LoginMode)
 							}
-						/> : null}
+						/>
+					) : null}
 
-					{form.formState.isSubmitted &&
-						form.formState.errors.root?.message ? <Alert variant="error">
-								<AlertTriangleIcon />
-								<AlertTitle>{form.formState.errors.root.message}</AlertTitle>
-							</Alert> : null}
+					{form.formState.isSubmitted && form.formState.errors.root?.message ? (
+						<Alert variant="error">
+							<AlertTriangleIcon />
+							<AlertTitle>{form.formState.errors.root.message}</AlertTitle>
+						</Alert>
+					) : null}
 
 					<LoginFormFields
 						form={form}
@@ -325,7 +333,8 @@ export const LoginForm = () => {
 
 			<SocialLoginSection signInWithPasskey={signInWithPasskey} t={t} />
 
-			{config.auth.enableSignup ? <div className="mt-6 text-center text-sm">
+			{config.auth.enableSignup ? (
+				<div className="mt-6 text-center text-sm">
 					<span className="text-foreground/60">
 						{t("auth.login.dontHaveAnAccount")}{" "}
 					</span>
@@ -338,7 +347,8 @@ export const LoginForm = () => {
 						{t("auth.login.createAnAccount")}
 						<ArrowRightIcon className="ml-1 inline size-4 align-middle" />
 					</Link>
-				</div> : null}
+				</div>
+			) : null}
 		</div>
 	);
 };

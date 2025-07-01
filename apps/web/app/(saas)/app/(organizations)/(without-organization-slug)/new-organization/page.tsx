@@ -12,8 +12,7 @@ export default async function NewOrganizationPage() {
 	if (
 		!config.organizations.enable ||
 		(!config.organizations.enableUsersToCreateOrganizations &&
-			(!config.organizations.requireOrganization ||
-				organizations.length > 0))
+			(!config.organizations.requireOrganization || organizations.length > 0))
 	) {
 		return redirect("/app");
 	}

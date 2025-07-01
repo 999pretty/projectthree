@@ -29,13 +29,11 @@ export const SessionProvider = ({
 			session: session?.session ?? null,
 			user: session?.user ?? null,
 			reloadSession: async () => {
-				const { data: newSession, error } = await authClient.getSession(
-					{
-						query: {
-							disableCookieCache: true,
-						},
+				const { data: newSession, error } = await authClient.getSession({
+					query: {
+						disableCookieCache: true,
 					},
-				);
+				});
 
 				if (error) {
 					throw new Error(error.message ?? "Failed to fetch session");

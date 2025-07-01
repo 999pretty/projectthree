@@ -151,10 +151,7 @@ export const member = sqliteTable(
 		createdAt: integer("createdAt", { mode: "timestamp" }).notNull(),
 	},
 	(table) => [
-		uniqueIndex("member_user_org_idx").on(
-			table.userId,
-			table.organizationId,
-		),
+		uniqueIndex("member_user_org_idx").on(table.userId, table.organizationId),
 	],
 );
 

@@ -32,10 +32,7 @@ export default async function BillingSettingsPage() {
 	return (
 		<SettingsList>
 			{activePlan ? <ActivePlan /> : null}
-			<ChangePlan
-				activePlanId={activePlan?.id}
-				userId={session?.user.id}
-			/>
+			<ChangePlan activePlanId={activePlan?.id} userId={session?.user.id} />
 		</SettingsList>
 	);
 }

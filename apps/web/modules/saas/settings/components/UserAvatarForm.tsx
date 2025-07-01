@@ -17,14 +17,10 @@ export const UserAvatarForm = () => {
 		>
 			<UserAvatarUpload
 				onError={() => {
-					toast.error(
-						t("settings.account.avatar.notifications.error"),
-					);
+					toast.error(t("settings.account.avatar.notifications.error"));
 				}}
 				onSuccess={() => {
-					toast.success(
-						t("settings.account.avatar.notifications.success"),
-					);
+					toast.success(t("settings.account.avatar.notifications.success"));
 				}}
 			/>
 		</SettingsItem>

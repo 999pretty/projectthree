@@ -63,9 +63,7 @@ const MemberUserCell = ({ member }: Readonly<MemberUserCellProps>) => {
 			/>
 			<div>
 				<strong className="block">{member.user.name}</strong>
-				<small className="text-foreground/60">
-					{member.user.email}
-				</small>
+				<small className="text-foreground/60">{member.user.email}</small>
 			</div>
 		</div>
 	);
@@ -101,13 +99,9 @@ const MemberActionsCell = ({
 			{userIsOrganizationAdmin ? (
 				<>
 					<OrganizationRoleSelect
-						disabled={
-							!userIsOrganizationAdmin || member.role === "owner"
-						}
+						disabled={!userIsOrganizationAdmin || member.role === "owner"}
 						value={member.role}
-						onSelect={async (value) =>
-							onUpdateMemberRole(member.id, value)
-						}
+						onSelect={async (value) => onUpdateMemberRole(member.id, value)}
 					/>
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
@@ -119,30 +113,20 @@ const MemberActionsCell = ({
 							{member.userId !== user?.id && (
 								<DropdownMenuItem
 									className="text-destructive"
-									disabled={
-										!isOrganizationAdmin(organization, user)
-									}
-									onClick={async () =>
-										onRemoveMember(member.id)
-									}
+									disabled={!isOrganizationAdmin(organization, user)}
+									onClick={async () => onRemoveMember(member.id)}
 								>
 									<TrashIcon className="mr-2 size-4" />
-									{t(
-										"organizations.settings.members.removeMember",
-									)}
+									{t("organizations.settings.members.removeMember")}
 								</DropdownMenuItem>
 							)}
 							{member.userId === user?.id && (
 								<DropdownMenuItem
 									className="text-destructive"
-									onClick={async () =>
-										onRemoveMember(member.id)
-									}
+									onClick={async () => onRemoveMember(member.id)}
 								>
 									<LogOutIcon className="mr-2 size-4" />
-									{t(
-										"organizations.settings.members.leaveOrganization",
-									)}
+									{t("organizations.settings.members.leaveOrganization")}
 								</DropdownMenuItem>
 							)}
 						</DropdownMenuContent>
@@ -316,20 +300,14 @@ export const OrganizationMembersList = ({
 							>
 								{row.getVisibleCells().map((cell) => (
 									<TableCell key={cell.id}>
-										{flexRender(
-											cell.column.columnDef.cell,
-											cell.getContext(),
-										)}
+										{flexRender(cell.column.columnDef.cell, cell.getContext())}
 									</TableCell>
 								))}
 							</TableRow>
 						))
 					) : (
 						<TableRow>
-							<TableCell
-								className="h-24 text-center"
-								colSpan={columns.length}
-							>
+							<TableCell className="h-24 text-center" colSpan={columns.length}>
 								No results.
 							</TableCell>
 						</TableRow>

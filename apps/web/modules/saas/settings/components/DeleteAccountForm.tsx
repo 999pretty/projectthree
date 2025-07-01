@@ -25,15 +25,11 @@ export const DeleteAccountForm = () => {
 			}
 		},
 		onSuccess: () => {
-			toast.success(
-				t("settings.account.deleteAccount.notifications.success"),
-			);
+			toast.success(t("settings.account.deleteAccount.notifications.success"));
 			reloadSession();
 		},
 		onError: () => {
-			toast.error(
-				t("settings.account.deleteAccount.notifications.error"),
-			);
+			toast.error(t("settings.account.deleteAccount.notifications.error"));
 		},
 	});
 

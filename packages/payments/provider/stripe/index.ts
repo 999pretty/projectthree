@@ -152,10 +152,12 @@ export const webhookHandler: WebhookHandler = async (req) => {
 					break;
 				}
 
-				const checkoutSession =
-					await stripeClient.checkout.sessions.retrieve(id, {
+				const checkoutSession = await stripeClient.checkout.sessions.retrieve(
+					id,
+					{
 						expand: ["line_items"],
-					});
+					},
+				);
 
 				const productId = checkoutSession.line_items?.data[0].price?.id;
 

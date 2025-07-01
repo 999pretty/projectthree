@@ -13,9 +13,7 @@ export const PricingSection = () => {
 					<h1 className="font-bold text-4xl lg:text-5xl">
 						{t("pricing.title")}
 					</h1>
-					<p className="mt-3 text-lg opacity-50">
-						{t("pricing.description")}
-					</p>
+					<p className="mt-3 text-lg opacity-50">{t("pricing.description")}</p>
 				</div>
 
 				<PricingTable />

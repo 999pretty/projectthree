@@ -40,9 +40,7 @@ export default async function Layout({ children }: PropsWithChildren) {
 	return (
 		<HydrationBoundary state={dehydrate(queryClient)}>
 			<SessionProvider>
-				<ConfirmationAlertProvider>
-					{children}
-				</ConfirmationAlertProvider>
+				<ConfirmationAlertProvider>{children}</ConfirmationAlertProvider>
 			</SessionProvider>
 		</HydrationBoundary>
 	);

@@ -95,9 +95,7 @@ export const ConfirmationAlertProvider = ({
 					<AlertDialogHeader>
 						<AlertDialogTitle>{options?.title}</AlertDialogTitle>
 					</AlertDialogHeader>
-					<AlertDialogDescription>
-						{options?.message}
-					</AlertDialogDescription>
+					<AlertDialogDescription>{options?.message}</AlertDialogDescription>
 
 					<AlertDialogFooter>
 						<AlertDialogCancel disabled={isLoading}>

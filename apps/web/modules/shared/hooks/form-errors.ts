@@ -48,9 +48,7 @@ const getKeyAndValues = (
 
 	if (isRecord(param)) {
 		const key =
-			"key" in param && typeof param.key === "string"
-				? param.key
-				: defaultKey;
+			"key" in param && typeof param.key === "string" ? param.key : defaultKey;
 		const values =
 			"values" in param && isRecord(param.values) ? param.values : {};
 		return { key, values };
@@ -144,10 +142,7 @@ export function useFormErrors() {
 				break;
 			case ZodIssueCode.invalid_literal:
 				message = t("zod.errors.invalid_literal", {
-					expected: JSON.stringify(
-						issue.expected,
-						jsonStringifyReplacer,
-					),
+					expected: JSON.stringify(issue.expected, jsonStringifyReplacer),
 				});
 				break;
 			case ZodIssueCode.unrecognized_keys:

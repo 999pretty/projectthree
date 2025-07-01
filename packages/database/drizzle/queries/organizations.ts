@@ -16,9 +16,7 @@ export async function getOrganizations({
 	query?: string;
 }) {
 	return db.query.organization.findMany({
-		where: query
-			? (org, { like }) => like(org.name, `%${query}%`)
-			: undefined,
+		where: query ? (org, { like }) => like(org.name, `%${query}%`) : undefined,
 		limit,
 		offset,
 		extras: {
@@ -64,10 +62,7 @@ export async function getOrganizationMembership(
 ) {
 	return db.query.member.findFirst({
 		where: (member, { eq }) =>
-			and(
-				eq(member.organizationId, organizationId),
-				eq(member.userId, userId),
-			),
+			and(eq(member.organizationId, organizationId), eq(member.userId, userId)),
 		with: {
 			organization: true,
 		},

@@ -55,9 +55,7 @@ export const ActiveSessionsBlock = () => {
 
 	return (
 		<SettingsItem
-			description={t(
-				"settings.account.security.activeSessions.description",
-			)}
+			description={t("settings.account.security.activeSessions.description")}
 			title={t("settings.account.security.activeSessions.title")}
 		>
 			<div className="grid grid-cols-1 gap-2">
@@ -72,10 +70,7 @@ export const ActiveSessionsBlock = () => {
 					</div>
 				) : (
 					sessions?.map((session) => (
-						<div
-							key={session.id}
-							className="flex justify-between gap-4"
-						>
+						<div key={session.id} className="flex justify-between gap-4">
 							<div className="flex gap-2">
 								<ComputerIcon className="size-6 shrink-0 text-primary/50" />
 								<div>

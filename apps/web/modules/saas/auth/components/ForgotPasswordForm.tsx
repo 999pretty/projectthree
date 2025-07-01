@@ -92,9 +92,7 @@ export const ForgotPasswordForm = () => {
 						{form.formState.errors.root ? (
 							<Alert variant="error">
 								<AlertTriangleIcon />
-								<AlertTitle>
-									{form.formState.errors.root.message}
-								</AlertTitle>
+								<AlertTitle>{form.formState.errors.root.message}</AlertTitle>
 							</Alert>
 						) : null}
 
@@ -103,14 +101,9 @@ export const ForgotPasswordForm = () => {
 							name="email"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>
-										{t("auth.forgotPassword.email")}
-									</FormLabel>
+									<FormLabel>{t("auth.forgotPassword.email")}</FormLabel>
 									<FormControl>
-										<Input
-											{...field}
-											autoComplete="email"
-										/>
+										<Input {...field} autoComplete="email" />
 									</FormControl>
 									<FormMessage />
 								</FormItem>

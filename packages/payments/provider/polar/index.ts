@@ -98,8 +98,7 @@ export const webhookHandler: WebhookHandler = async (req) => {
 				}
 
 				await createPurchase({
-					organizationId:
-						(metadata?.organization_id as string) || null,
+					organizationId: (metadata?.organization_id as string) || null,
 					userId: (metadata?.user_id as string) || null,
 					customerId,
 					type: "ONE_TIME",

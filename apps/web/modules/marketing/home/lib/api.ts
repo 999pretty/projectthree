@@ -9,9 +9,7 @@ export const useNewsletterSignupMutation = () => {
 	return useMutation({
 		mutationKey: newsletterSignupMutationKey,
 		mutationFn: async (
-			form: InferRequestType<
-				typeof apiClient.newsletter.signup.$post
-			>["form"],
+			form: InferRequestType<typeof apiClient.newsletter.signup.$post>["form"],
 		) => {
 			const response = await apiClient.newsletter.signup.$post({
 				form,

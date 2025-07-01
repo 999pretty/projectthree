@@ -83,9 +83,7 @@ export const ResetPasswordForm = () => {
 			{form.formState.isSubmitSuccessful ? (
 				<Alert variant="success">
 					<MailboxIcon />
-					<AlertTitle>
-						{t("auth.resetPassword.hints.success")}
-					</AlertTitle>
+					<AlertTitle>{t("auth.resetPassword.hints.success")}</AlertTitle>
 				</Alert>
 			) : (
 				<Form {...form}>
@@ -96,9 +94,7 @@ export const ResetPasswordForm = () => {
 						{form.formState.errors.root ? (
 							<Alert variant="error">
 								<AlertTriangleIcon />
-								<AlertTitle>
-									{form.formState.errors.root.message}
-								</AlertTitle>
+								<AlertTitle>{form.formState.errors.root.message}</AlertTitle>
 							</Alert>
 						) : null}
 
@@ -107,14 +103,9 @@ export const ResetPasswordForm = () => {
 							name="password"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>
-										{t("auth.resetPassword.newPassword")}
-									</FormLabel>
+									<FormLabel>{t("auth.resetPassword.newPassword")}</FormLabel>
 									<FormControl>
-										<PasswordInput
-											autoComplete="new-password"
-											{...field}
-										/>
+										<PasswordInput autoComplete="new-password" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>

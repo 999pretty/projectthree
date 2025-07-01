@@ -42,9 +42,7 @@ export default async function BillingSettingsPage({
 
 	return (
 		<SettingsList>
-			{activePlan ? (
-				<ActivePlan organizationId={organization.id} />
-			) : null}
+			{activePlan ? <ActivePlan organizationId={organization.id} /> : null}
 			<ChangePlan
 				activePlanId={activePlan?.id}
 				organizationId={organization.id}

@@ -42,18 +42,14 @@ export const Newsletter = () => {
 					<h1 className="font-bold text-3xl lg:text-4xl">
 						{t("newsletter.title")}
 					</h1>
-					<p className="mt-3 text-lg opacity-70">
-						{t("newsletter.subtitle")}
-					</p>
+					<p className="mt-3 text-lg opacity-70">{t("newsletter.subtitle")}</p>
 				</div>
 
 				<div className="mx-auto max-w-lg">
 					{form.formState.isSubmitSuccessful ? (
 						<Alert variant="success">
 							<CheckCircleIcon />
-							<AlertTitle>
-								{t("newsletter.hints.success.title")}
-							</AlertTitle>
+							<AlertTitle>{t("newsletter.hints.success.title")}</AlertTitle>
 							<AlertDescription>
 								{t("newsletter.hints.success.message")}
 							</AlertDescription>

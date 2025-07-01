@@ -51,9 +51,7 @@ export const ChangeOrganizationNameForm = () => {
 			}
 
 			toast.success(
-				t(
-					"organizations.settings.notifications.organizationNameUpdated",
-				),
+				t("organizations.settings.notifications.organizationNameUpdated"),
 			);
 
 			queryClient.invalidateQueries({
@@ -62,9 +60,7 @@ export const ChangeOrganizationNameForm = () => {
 			router.refresh();
 		} catch {
 			toast.error(
-				t(
-					"organizations.settings.notifications.organizationNameNotUpdated",
-				),
+				t("organizations.settings.notifications.organizationNameNotUpdated"),
 			);
 		}
 	});
@@ -77,10 +73,7 @@ export const ChangeOrganizationNameForm = () => {
 				<div className="mt-4 flex justify-end">
 					<Button
 						disabled={
-							!(
-								form.formState.isValid &&
-								form.formState.dirtyFields.name
-							)
+							!(form.formState.isValid && form.formState.dirtyFields.name)
 						}
 						loading={form.formState.isSubmitting}
 						type="submit"

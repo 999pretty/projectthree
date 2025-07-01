@@ -34,10 +34,9 @@ export const OrganizationInvitationModal = ({
 		setSubmitting(accept ? "accept" : "reject");
 		try {
 			if (accept) {
-				const { error } =
-					await authClient.organization.acceptInvitation({
-						invitationId,
-					});
+				const { error } = await authClient.organization.acceptInvitation({
+					invitationId,
+				});
 
 				if (error) {
 					throw error;
@@ -49,10 +48,9 @@ export const OrganizationInvitationModal = ({
 
 				router.replace(`/app/${organizationSlug}`);
 			} else {
-				const { error } =
-					await authClient.organization.rejectInvitation({
-						invitationId,
-					});
+				const { error } = await authClient.organization.rejectInvitation({
+					invitationId,
+				});
 
 				if (error) {
 					throw error;
@@ -88,9 +86,7 @@ export const OrganizationInvitationModal = ({
 					name={organizationName}
 				/>
 				<div>
-					<strong className="font-medium text-lg">
-						{organizationName}
-					</strong>
+					<strong className="font-medium text-lg">{organizationName}</strong>
 				</div>
 			</div>
 

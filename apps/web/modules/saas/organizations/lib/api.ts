@@ -12,9 +12,7 @@ export const useOrganizationListQuery = () => {
 			const { data, error } = await authClient.organization.list();
 
 			if (error) {
-				throw new Error(
-					error.message ?? "Failed to fetch organizations",
-				);
+				throw new Error(error.message ?? "Failed to fetch organizations");
 			}
 
 			return data;
@@ -33,17 +31,16 @@ export const useActiveOrganizationQuery = (
 	return useQuery({
 		queryKey: activeOrganizationQueryKey(slug),
 		queryFn: async () => {
-			const { data, error } =
-				await authClient.organization.getFullOrganization({
+			const { data, error } = await authClient.organization.getFullOrganization(
+				{
 					query: {
 						organizationSlug: slug,
 					},
-				});
+				},
+			);
 
 			if (error) {
-				throw new Error(
-					error.message ?? "Failed to fetch active organization",
-				);
+				throw new Error(error.message ?? "Failed to fetch active organization");
 			}
 
 			return data;
@@ -58,17 +55,16 @@ export const useFullOrganizationQuery = (id: string) => {
 	return useQuery({
 		queryKey: fullOrganizationQueryKey(id),
 		queryFn: async () => {
-			const { data, error } =
-				await authClient.organization.getFullOrganization({
+			const { data, error } = await authClient.organization.getFullOrganization(
+				{
 					query: {
 						organizationId: id,
 					},
-				});
+				},
+			);
 
 			if (error) {
-				throw new Error(
-					error.message ?? "Failed to fetch full organization",
-				);
+				throw new Error(error.message ?? "Failed to fetch full organization");
 			}
 
 			return data;
@@ -143,9 +139,7 @@ export const useUpdateOrganizationMutation = () => {
 				organizationId: id,
 				data: {
 					name,
-					slug: updateSlug
-						? await generateOrganizationSlug(name)
-						: undefined,
+					slug: updateSlug ? await generateOrganizationSlug(name) : undefined,
 					metadata,
 				},
 			});

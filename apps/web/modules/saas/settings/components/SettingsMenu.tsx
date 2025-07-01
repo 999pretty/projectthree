@@ -34,9 +34,7 @@ export const SettingsMenu = ({
 								key={subitem.href}
 								className={cn(
 									"block rounded-lg px-3 py-2 font-medium text-sm hover:bg-accent hover:text-accent-foreground",
-									isActiveMenuItem(subitem.href)
-										? "bg-accent"
-										: "",
+									isActiveMenuItem(subitem.href) ? "bg-accent" : "",
 								)}
 								href={subitem.href}
 							>

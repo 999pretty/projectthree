@@ -82,11 +82,7 @@ const FormItem = React.forwardRef<
 
 	return (
 		<FormItemContext.Provider value={contextValue}>
-			<div
-				ref={ref}
-				className={cn("space-y-1.5", className)}
-				{...props}
-			/>
+			<div ref={ref} className={cn("space-y-1.5", className)} {...props} />
 		</FormItemContext.Provider>
 	);
 });
@@ -124,9 +120,7 @@ const FormControl = React.forwardRef<
 		<Slot
 			ref={ref}
 			aria-describedby={
-				error
-					? `${formDescriptionId} ${formMessageId}`
-					: `${formDescriptionId}`
+				error ? `${formDescriptionId} ${formMessageId}` : `${formDescriptionId}`
 			}
 			aria-invalid={!!error}
 			id={formItemId}

@@ -44,9 +44,7 @@ export const ActivePlan = ({
 							<span>{activePlanData.title}</span>
 						</h4>
 						{activePlan.status ? (
-							<SubscriptionStatusBadge
-								status={activePlan.status}
-							/>
+							<SubscriptionStatusBadge status={activePlan.status} />
 						) : null}
 					</div>
 
@@ -86,9 +84,7 @@ export const ActivePlan = ({
 											})}
 								</span>
 							)}
-							{organizationId &&
-							"seatBased" in price &&
-							price.seatBased ? (
+							{organizationId && "seatBased" in price && price.seatBased ? (
 								<span className="font-normal text-xs opacity-60">
 									{" / "}
 									{t("pricing.perSeat")}
@@ -101,9 +97,7 @@ export const ActivePlan = ({
 				{"purchaseId" in activePlan && activePlan.purchaseId ? (
 					<div className="mt-4 flex justify-end">
 						<div className="flex w-full flex-col flex-wrap gap-2 md:flex-row">
-							<CustomerPortalButton
-								purchaseId={activePlan.purchaseId}
-							/>
+							<CustomerPortalButton purchaseId={activePlan.purchaseId} />
 						</div>
 					</div>
 				) : null}

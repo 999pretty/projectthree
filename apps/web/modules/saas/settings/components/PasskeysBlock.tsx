@@ -85,9 +85,7 @@ export const PasskeysBlock = () => {
 									{passkey.deviceType} {passkey.name}
 								</strong>
 								<small className="block text-foreground/60 text-xs leading-tight">
-									{formatter.dateTime(
-										new Date(passkey.createdAt),
-									)}
+									{formatter.dateTime(new Date(passkey.createdAt))}
 								</small>
 							</div>
 							<Button

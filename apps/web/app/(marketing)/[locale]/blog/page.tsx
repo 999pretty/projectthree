@@ -26,9 +26,7 @@ export default async function BlogListPage() {
 				{posts
 					.filter((post) => post.published && locale === post.locale)
 					.sort(
-						(a, b) =>
-							new Date(b.date).getTime() -
-							new Date(a.date).getTime(),
+						(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 					)
 					.map((post) => (
 						<PostListItem key={post.path} post={post} />

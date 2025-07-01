@@ -14,13 +14,16 @@ const buttonVariants = cva(
 			variant: {
 				primary:
 					"border-transparent bg-primary text-primary-foreground shadow-primary/20 shadow-sm hover:bg-primary/90",
-				error: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+				error:
+					"bg-destructive text-destructive-foreground hover:bg-destructive/90",
 				outline:
 					"border-secondary/15 bg-transparent text-secondary hover:bg-secondary/10",
 				secondary:
 					"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/90",
-				light: "border-transparent bg-secondary/5 text-foreground hover:bg-secondary/10",
-				ghost: "border-transparent text-primary hover:bg-primary/10 hover:text-primary",
+				light:
+					"border-transparent bg-secondary/5 text-foreground hover:bg-secondary/10",
+				ghost:
+					"border-transparent text-primary hover:bg-primary/10 hover:text-primary",
 				link: "border-transparent text-primary underline-offset-4 hover:underline",
 			},
 			size: {
@@ -65,9 +68,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				disabled={disabled || loading}
 				{...props}
 			>
-				{loading ? (
-					<Spinner className="mr-1.5 size-4 text-inherit" />
-				) : null}
+				{loading ? <Spinner className="mr-1.5 size-4 text-inherit" /> : null}
 				<Slottable>{children}</Slottable>
 			</Comp>
 		);

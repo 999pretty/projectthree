@@ -28,16 +28,12 @@ export const SetPasswordForm = () => {
 			{
 				onSuccess: () => {
 					toast.success(
-						t(
-							"settings.account.security.setPassword.notifications.success",
-						),
+						t("settings.account.security.setPassword.notifications.success"),
 					);
 				},
 				onError: () => {
 					toast.error(
-						t(
-							"settings.account.security.setPassword.notifications.error",
-						),
+						t("settings.account.security.setPassword.notifications.error"),
 					);
 				},
 				onResponse: () => {

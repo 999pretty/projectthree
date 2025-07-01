@@ -42,9 +42,7 @@ export const aiRouter = new Hono()
 					description: "Chats",
 					content: {
 						"application/json": {
-							schema: resolver(
-								z.object({ chats: z.array(ChatSchema) }),
-							),
+							schema: resolver(z.object({ chats: z.array(ChatSchema) })),
 						},
 					},
 				},
@@ -186,10 +184,7 @@ export const aiRouter = new Hono()
 			}
 
 			if (chat.organizationId) {
-				await verifyOrganizationMembership(
-					chat.organizationId,
-					user.id,
-				);
+				await verifyOrganizationMembership(chat.organizationId, user.id);
 			} else if (chat.userId !== c.get("user").id) {
 				throw new HTTPException(403, { message: "Forbidden" });
 			}
@@ -224,10 +219,7 @@ export const aiRouter = new Hono()
 			}
 
 			if (chat.organizationId) {
-				await verifyOrganizationMembership(
-					chat.organizationId,
-					user.id,
-				);
+				await verifyOrganizationMembership(chat.organizationId, user.id);
 			} else if (chat.userId !== c.get("user").id) {
 				throw new HTTPException(403, { message: "Forbidden" });
 			}
@@ -246,8 +238,7 @@ export const aiRouter = new Hono()
 				"Send all messages of the chat to the AI model to get a response",
 			responses: {
 				200: {
-					description:
-						"Returns a stream of the response from the AI model",
+					description: "Returns a stream of the response from the AI model",
 				},
 			},
 		}),
@@ -274,10 +265,7 @@ export const aiRouter = new Hono()
 			}
 
 			if (chat.organizationId) {
-				await verifyOrganizationMembership(
-					chat.organizationId,
-					user.id,
-				);
+				await verifyOrganizationMembership(chat.organizationId, user.id);
 			} else if (chat.userId !== c.get("user").id) {
 				throw new HTTPException(403, { message: "Forbidden" });
 			}

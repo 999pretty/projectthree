@@ -24,9 +24,7 @@ export const CustomerPortalButton = ({
 			window.location.href = customerPortalLink;
 		} catch {
 			toast.error(
-				t(
-					"settings.billing.createCustomerPortal.notifications.error.title",
-				),
+				t("settings.billing.createCustomerPortal.notifications.error.title"),
 			);
 		}
 	};

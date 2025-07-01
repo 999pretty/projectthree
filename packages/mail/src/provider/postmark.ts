@@ -31,8 +31,7 @@ export const send: SendEmailHandler = async ({ to, subject, html, text }) => {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			"X-Postmark-Server-Token": process.env
-				.POSTMARK_SERVER_TOKEN as string,
+			"X-Postmark-Server-Token": process.env.POSTMARK_SERVER_TOKEN as string,
 		},
 		body: JSON.stringify(body),
 	});

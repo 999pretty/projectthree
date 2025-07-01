@@ -56,10 +56,7 @@ export const ChangeNameForm = () => {
 				<div className="mt-4 flex justify-end">
 					<Button
 						disabled={
-							!(
-								form.formState.isValid &&
-								form.formState.dirtyFields.name
-							)
+							!(form.formState.isValid && form.formState.dirtyFields.name)
 						}
 						loading={form.formState.isSubmitting}
 						type="submit"

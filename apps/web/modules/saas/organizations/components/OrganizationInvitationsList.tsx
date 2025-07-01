@@ -134,9 +134,7 @@ const InvitationActionsCell = ({
 							onClick={() => onRevokeInvitation(invitation.id)}
 						>
 							<MailXIcon className="mr-2 size-4" />
-							{t(
-								"organizations.settings.members.invitations.revoke",
-							)}
+							{t("organizations.settings.members.invitations.revoke")}
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
@@ -153,9 +151,7 @@ function createColumns(
 		{
 			accessorKey: "email",
 			accessorFn: (row) => row.email,
-			cell: ({ row }) => (
-				<InvitationEmailCell invitation={row.original} />
-			),
+			cell: ({ row }) => <InvitationEmailCell invitation={row.original} />,
 		},
 		{
 			accessorKey: "actions",
@@ -188,8 +184,7 @@ export const OrganizationInvitationsList = ({
 				?.filter((invitation) => invitation.status === "pending")
 				.sort(
 					(a, b) =>
-						new Date(a.expiresAt).getTime() -
-						new Date(b.expiresAt).getTime(),
+						new Date(a.expiresAt).getTime() - new Date(b.expiresAt).getTime(),
 				),
 		[organization?.invitations],
 	);
@@ -198,10 +193,9 @@ export const OrganizationInvitationsList = ({
 		(invitationId: string) => {
 			toast.promise(
 				async () => {
-					const { error } =
-						await authClient.organization.cancelInvitation({
-							invitationId,
-						});
+					const { error } = await authClient.organization.cancelInvitation({
+						invitationId,
+					});
 
 					if (error) {
 						throw error;
@@ -254,23 +248,15 @@ export const OrganizationInvitationsList = ({
 							>
 								{row.getVisibleCells().map((cell) => (
 									<TableCell key={cell.id}>
-										{flexRender(
-											cell.column.columnDef.cell,
-											cell.getContext(),
-										)}
+										{flexRender(cell.column.columnDef.cell, cell.getContext())}
 									</TableCell>
 								))}
 							</TableRow>
 						))
 					) : (
 						<TableRow>
-							<TableCell
-								className="h-24 text-center"
-								colSpan={columns.length}
-							>
-								{t(
-									"organizations.settings.members.invitations.empty",
-								)}
+							<TableCell className="h-24 text-center" colSpan={columns.length}>
+								{t("organizations.settings.members.invitations.empty")}
 							</TableCell>
 						</TableRow>
 					)}

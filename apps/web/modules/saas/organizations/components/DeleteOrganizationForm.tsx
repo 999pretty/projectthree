@@ -16,8 +16,7 @@ export const DeleteOrganizationForm = () => {
 	const router = useRouter();
 	const { confirm } = useConfirmationAlert();
 	const { refetch: reloadOrganizations } = useOrganizationListQuery();
-	const { activeOrganization, setActiveOrganization } =
-		useActiveOrganization();
+	const { activeOrganization, setActiveOrganization } = useActiveOrganization();
 
 	if (!activeOrganization) {
 		return null;
@@ -26,9 +25,7 @@ export const DeleteOrganizationForm = () => {
 	const handleDelete = async () => {
 		confirm({
 			title: t("organizations.settings.deleteOrganization.title"),
-			message: t(
-				"organizations.settings.deleteOrganization.confirmation",
-			),
+			message: t("organizations.settings.deleteOrganization.confirmation"),
 			destructive: true,
 			onConfirm: async () => {
 				const { error } = await authClient.organization.delete({
@@ -37,17 +34,13 @@ export const DeleteOrganizationForm = () => {
 
 				if (error) {
 					toast.error(
-						t(
-							"organizations.settings.notifications.organizationNotDeleted",
-						),
+						t("organizations.settings.notifications.organizationNotDeleted"),
 					);
 					return;
 				}
 
 				toast.success(
-					t(
-						"organizations.settings.notifications.organizationDeleted",
-					),
+					t("organizations.settings.notifications.organizationDeleted"),
 				);
 				await setActiveOrganization(null);
 				await reloadOrganizations();
@@ -59,9 +52,7 @@ export const DeleteOrganizationForm = () => {
 	return (
 		<SettingsItem
 			danger
-			description={t(
-				"organizations.settings.deleteOrganization.description",
-			)}
+			description={t("organizations.settings.deleteOrganization.description")}
 			title={t("organizations.settings.deleteOrganization.title")}
 		>
 			<div className="mt-4 flex justify-end">

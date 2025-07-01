@@ -34,10 +34,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			lastModified: new Date(),
 		})),
 		...docsSource.getPages().map((page) => ({
-			url: new URL(
-				`/${page.locale}/docs/${page.slugs.join("/")}`,
-				baseUrl,
-			).href,
+			url: new URL(`/${page.locale}/docs/${page.slugs.join("/")}`, baseUrl)
+				.href,
 			lastModified: new Date(),
 		})),
 	];

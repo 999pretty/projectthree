@@ -39,9 +39,7 @@ export const useCreateCheckoutLinkMutation = () => {
 				(typeof apiClient.payments)["create-checkout-link"]["$post"]
 			>["query"],
 		) => {
-			const response = await apiClient.payments[
-				"create-checkout-link"
-			].$post({
+			const response = await apiClient.payments["create-checkout-link"].$post({
 				query,
 			});
 

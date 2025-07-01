@@ -37,12 +37,8 @@ export const OnboardingForm = () => {
 
 	return (
 		<div>
-			<h1 className="font-bold text-xl md:text-2xl">
-				{t("onboarding.title")}
-			</h1>
-			<p className="mt-2 mb-6 text-foreground/60">
-				{t("onboarding.message")}
-			</p>
+			<h1 className="font-bold text-xl md:text-2xl">{t("onboarding.title")}</h1>
+			<p className="mt-2 mb-6 text-foreground/60">{t("onboarding.message")}</p>
 
 			{steps.length > 1 && (
 				<div className="mb-6 flex items-center gap-3">

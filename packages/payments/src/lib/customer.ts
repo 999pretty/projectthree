@@ -27,8 +27,8 @@ export const getCustomerIdFromEntity = async (
 ) => {
 	if ("organizationId" in props) {
 		return (
-			(await getOrganizationById(props.organizationId))
-				?.paymentsCustomerId ?? null
+			(await getOrganizationById(props.organizationId))?.paymentsCustomerId ??
+			null
 		);
 	}
 

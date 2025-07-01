@@ -9,7 +9,8 @@ export const FaqSection = ({ className }: Readonly<{ className?: string }>) => {
 		{
 			id: "refund-policy",
 			question: "What is the refund policy?",
-			answer: "We offer a 30-day money-back guarantee if you're not happy with our product.",
+			answer:
+				"We offer a 30-day money-back guarantee if you're not happy with our product.",
 		},
 		{
 			id: "cancel-subscription",
@@ -19,7 +20,8 @@ export const FaqSection = ({ className }: Readonly<{ className?: string }>) => {
 		{
 			id: "change-plan",
 			question: "Can I change my plan?",
-			answer: "Yes, you can change your plan at any time by visiting the billing page.",
+			answer:
+				"Yes, you can change your plan at any time by visiting the billing page.",
 		},
 		{
 			id: "free-trial",
@@ -46,13 +48,8 @@ export const FaqSection = ({ className }: Readonly<{ className?: string }>) => {
 				</div>
 				<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
 					{items.map((item) => (
-						<div
-							key={item.id}
-							className="rounded-lg border bg-card p-4 lg:p-6"
-						>
-							<h4 className="mb-2 font-semibold text-lg">
-								{item.question}
-							</h4>
+						<div key={item.id} className="rounded-lg border bg-card p-4 lg:p-6">
+							<h4 className="mb-2 font-semibold text-lg">{item.question}</h4>
 							<p className="text-foreground/60">{item.answer}</p>
 						</div>
 					))}

@@ -42,10 +42,7 @@ export const CropImageDialog = ({
 		return imageBlob;
 	};
 
-	const imageSrc = useMemo(
-		() => image && URL.createObjectURL(image),
-		[image],
-	);
+	const imageSrc = useMemo(() => image && URL.createObjectURL(image), [image]);
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>

@@ -60,10 +60,7 @@ export const ChangeEmailForm = () => {
 				<div className="mt-4 flex justify-end">
 					<Button
 						disabled={
-							!(
-								form.formState.isValid &&
-								form.formState.dirtyFields.email
-							)
+							!(form.formState.isValid && form.formState.dirtyFields.email)
 						}
 						loading={form.formState.isSubmitting}
 						type="submit"
