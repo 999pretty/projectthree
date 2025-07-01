@@ -1,8 +1,9 @@
-name: Validate PRs
+name: CI
 
 on:
+  push:  # Run on all pushes (no branch filter)
   pull_request:
-    branches: [main]
+    branches: [main]  # Keep PR validation for main
 
 env:
   DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db

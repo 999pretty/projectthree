@@ -2,9 +2,7 @@ name: Security Scan
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main ]  # Run security checks on main branch pushes
   schedule:
     - cron: '0 0 * * 0'  # Run weekly
 
@@ -14,27 +12,6 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    name: Run unit tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - uses: pnpm/action-setup@v4
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run tests
-        run: pnpm test
-      - name: Upload coverage reports
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: coverage-report
-          path: apps/web/coverage/
-          retention-days: 30
-
   security:
     name: Security Scan
     runs-on: ubuntu-latest
