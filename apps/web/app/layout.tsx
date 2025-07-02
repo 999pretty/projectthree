@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import type { PropsWithChildren } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { config } from "@repo/config";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import "cropperjs/dist/cropper.css";
