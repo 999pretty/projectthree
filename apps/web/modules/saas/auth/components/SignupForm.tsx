@@ -65,10 +65,8 @@ export const SignupForm = ({
 	const redirectTo = searchParams.get("redirectTo");
 
 	const form = useForm<FormValues>({
-		resolver: zodResolver(formSchema, {
-			errorMap: zodErrorMap,
-		}),
-		values: {
+		resolver: zodResolver(formSchema),
+		defaultValues: {
 			name: "",
 			email: prefillEmail ?? email ?? "",
 			password: "",
