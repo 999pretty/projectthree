@@ -6,11 +6,7 @@ import { z } from "zod";
 
 import { type Config, config } from "@repo/config";
 import { getOrganizationMembership } from "@repo/database";
-import {
-	PurchaseSchema,
-	getOrganizationById,
-	getPurchaseById,
-} from "@repo/database";
+import { getOrganizationById, getPurchaseById } from "@repo/database";
 import { logger } from "@repo/logs";
 import {
 	createCheckoutLink,
@@ -23,6 +19,19 @@ import { authMiddleware } from "../../middleware/auth";
 import { getPurchases } from "./lib/purchases";
 
 const plans = config.payments.plans as Config["payments"]["plans"];
+
+const PurchaseSchema = z.object({
+	id: z.string(),
+	organizationId: z.string().nullable(),
+	userId: z.string().nullable(),
+	type: z.enum(["SUBSCRIPTION", "ONE_TIME"]),
+	customerId: z.string(),
+	subscriptionId: z.string().nullable(),
+	productId: z.string(),
+	status: z.string().nullable(),
+	createdAt: z.coerce.date(),
+	updatedAt: z.coerce.date().nullable(),
+});
 
 export const paymentsRouter = new Hono()
 	.basePath("/payments")
