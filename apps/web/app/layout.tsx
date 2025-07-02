@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
 import { config } from "@repo/config";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import "cropperjs/dist/cropper.css";
@@ -16,5 +17,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
-	return children;
+	return (
+		<html lang="en">
+			<body>
+				{children}
+				<SpeedInsights />
+			</body>
+		</html>
+	);
 }

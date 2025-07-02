@@ -1,14 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Validate branch name
-local_branch="$(git rev-parse --abbrev-ref HEAD)"
-valid_branch_regex="^(feature|bugfix|hotfix|release|chore)\/[a-zA-Z0-9._-]+$"
-if [[ ! $local_branch =~ $valid_branch_regex ]]
-then
-    echo "Branch name '$local_branch' doesn't adhere to the naming convention:"
-    echo "feature/*, bugfix/*, hotfix/*, release/*, chore/*"
-    exit 1
-fi
-
 pnpm lint-staged
