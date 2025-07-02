@@ -24,14 +24,12 @@ const MessageSchema = z.object({
 	content: z.string(),
 });
 
-// Break the circular reference by using a separate type
-type ChatSchemaType = z.infer<typeof AiChatSchema> & {
-	messages: z.infer<typeof MessageSchema>[];
-};
-
-const ChatSchema: z.ZodType<ChatSchemaType> = AiChatSchema.extend({
-	messages: z.array(MessageSchema),
-});
+const ChatSchema = z.intersection(
+	AiChatSchema,
+	z.object({
+		messages: z.array(MessageSchema),
+	}),
+);
 
 export const aiRouter = new Hono()
 	.basePath("/ai")
