@@ -6,7 +6,6 @@ import { z } from "zod";
 
 import { streamText, textModel } from "@repo/ai";
 import {
-	AiChatSchema,
 	createAiChat,
 	deleteAiChat,
 	getAiChatById,
@@ -24,12 +23,15 @@ const MessageSchema = z.object({
 	content: z.string(),
 });
 
-const ChatSchema = z.intersection(
-	AiChatSchema,
-	z.object({
-		messages: z.array(MessageSchema),
-	}),
-);
+const ChatSchema = z.object({
+	id: z.string(),
+	organizationId: z.string().nullable(),
+	userId: z.string().nullable(),
+	title: z.string().nullable(),
+	messages: z.array(MessageSchema).nullable(),
+	createdAt: z.coerce.date(),
+	updatedAt: z.coerce.date().nullable(),
+});
 
 export const aiRouter = new Hono()
 	.basePath("/ai")
