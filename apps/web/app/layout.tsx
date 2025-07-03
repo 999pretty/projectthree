@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 			>
 				<Providers initialConsent={consentCookie?.value === "true"}>
 					{children}
-					<SpeedInsights />
+					<SpeedInsights sampleRate={1} />
 				</Providers>
 			</body>
 		</html>
