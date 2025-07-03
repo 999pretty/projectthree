@@ -1,8 +1,6 @@
 "use client";
 
-// @ts-expect-error package is not installed per default
 import { track } from "@vercel/analytics";
-// @ts-expect-error package is not installed per default
 import { Analytics } from "@vercel/analytics/react";
 
 export const AnalyticsScript = () => {
@@ -10,7 +8,10 @@ export const AnalyticsScript = () => {
 };
 
 export function useAnalytics() {
-	const trackEvent = (event: string, data?: Record<string, unknown>) => {
+	const trackEvent = (
+		event: string,
+		data?: Record<string, string | number | boolean | null>,
+	) => {
 		track(event, data);
 	};
 

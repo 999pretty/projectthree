@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 import type { PropsWithChildren } from "react";
 import { cookies } from "next/headers";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { config } from "@repo/config";
 import { cn } from "@ui/lib";
