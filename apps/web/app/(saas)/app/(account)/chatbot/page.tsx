@@ -3,6 +3,13 @@ import { aiChatListQueryKey, aiChatQueryKey } from "@saas/ai/lib/api";
 import { PageHeader } from "@saas/shared/components/PageHeader";
 import { getServerApiClient, getServerQueryClient } from "@shared/lib/server";
 
+type ChatResponse = {
+	chats: Array<{
+		id: string;
+		// Add other chat properties as needed
+	}>;
+};
+
 export default async function AiDemoPage() {
 	const queryClient = getServerQueryClient();
 	const apiClient = await getServerApiClient();
@@ -14,7 +21,7 @@ export default async function AiDemoPage() {
 			throw new Error("Failed to fetch chats");
 		}
 
-		return response.json().then((data) => data.chats);
+		return response.json().then((data: ChatResponse) => data.chats);
 	})();
 
 	await queryClient.prefetchQuery({

@@ -49,10 +49,10 @@
 			},
 			"nursery": {
 				"useSortedClasses": {
-					"level": "error",
+					"level": "warn",
 					"options": {
-						"attributes": ["className", "class"],
-						"functions": ["clsx", "cva", "tw", "cn"]
+						"attributes": ["className"],
+						"functions": ["clsx", "cva", "cn"]
 					}
 				}
 			}

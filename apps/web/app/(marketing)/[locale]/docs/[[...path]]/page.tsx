@@ -7,12 +7,13 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 import { DocsBody, DocsPage as FumadocsPage } from "fumadocs-ui/page";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MDXContent } from "@content-collections/mdx/react";
+import type { ComponentProps } from "react";
 
 import { config } from "@repo/config";
 
 import { docsSource } from "../../../../docs-source";
 
-const ZoomImage = (props: any) => (
+const ZoomImage = (props: ComponentProps<typeof ImageZoom>) => (
 	<ImageZoom {...props} className="rounded-lg border-4 border-secondary/10" />
 );
 
@@ -50,7 +51,7 @@ export default async function DocsPage({
 				<div className="prose dark:prose-invert max-w-full prose-a:text-foreground prose-p:text-foreground/80">
 					<MDXContent
 						code={page.data.body}
-						// @ts-expect-error
+						// @ts-expect-error - MDXContent types from fumadocs-ui are not compatible with our custom components
 						components={{
 							...defaultMdxComponents,
 							Tabs,

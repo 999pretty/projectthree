@@ -9,9 +9,10 @@ import { NavBar } from "@marketing/shared/components/NavBar";
 
 import { config } from "@repo/config";
 import { SessionProvider } from "@saas/auth/components/SessionProvider";
-import { Document } from "@shared/components/Document";
 
-const locales = Object.keys(config.i18n.locales);
+const locales = Object.keys(config.i18n.locales) as Array<
+	keyof typeof config.i18n.locales
+>;
 
 export function generateStaticParams() {
 	return locales.map((locale) => ({ locale }));
@@ -25,32 +26,30 @@ export default async function MarketingLayout({
 
 	setRequestLocale(locale);
 
-	if (!locales.includes(locale as any)) {
+	if (!locales.includes(locale as keyof typeof config.i18n.locales)) {
 		notFound();
 	}
 
 	const messages = await getMessages();
 
 	return (
-		<Document locale={locale}>
-			<FumadocsI18nProvider locale={locale}>
-				<FumadocsRootProvider
-					search={{
-						enabled: true,
-						options: {
-							api: "/api/docs-search",
-						},
-					}}
-				>
-					<NextIntlClientProvider locale={locale} messages={messages}>
-						<SessionProvider>
-							<NavBar />
-							<main className="min-h-screen">{children}</main>
-							<Footer />
-						</SessionProvider>
-					</NextIntlClientProvider>
-				</FumadocsRootProvider>
-			</FumadocsI18nProvider>
-		</Document>
+		<FumadocsI18nProvider locale={locale}>
+			<FumadocsRootProvider
+				search={{
+					enabled: true,
+					options: {
+						api: "/api/docs-search",
+					},
+				}}
+			>
+				<NextIntlClientProvider locale={locale} messages={messages}>
+					<SessionProvider>
+						<NavBar />
+						<main className="min-h-screen">{children}</main>
+						<Footer />
+					</SessionProvider>
+				</NextIntlClientProvider>
+			</FumadocsRootProvider>
+		</FumadocsI18nProvider>
 	);
 }
