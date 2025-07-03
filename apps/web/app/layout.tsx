@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 import { cookies } from "next/headers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { config } from "@repo/config";
 import { cn } from "@ui/lib";
@@ -34,7 +35,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 			>
 				<Providers initialConsent={consentCookie?.value === "true"}>
 					{children}
-					<SpeedInsights sampleRate={1} />
+					<SpeedInsights />
+					<Analytics />
 				</Providers>
 			</body>
 		</html>

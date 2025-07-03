@@ -29,6 +29,7 @@
 		"@sindresorhus/slugify": "^2.2.1",
 		"@tanstack/react-query": "^5.81.5",
 		"@tanstack/react-table": "^8.21.3",
+		"@vercel/analytics": "^1.5.0",
 		"@vercel/speed-insights": "^1.2.0",
 		"ai": "^4.3.16",
 		"better-auth": "1.2.12",
@@ -106,6 +107,7 @@
 		"cross-env": "^7.0.3",
 		"dotenv": "^16.5.0",
 		"dotenv-cli": "^8.0.0",
+		"eslint-config-next": "15.3.4",
 		"eslint-plugin-security": "^3.0.1",
 		"eslint-plugin-sonarjs": "^3.0.3",
 		"jsdom": "^26.1.0",
@@ -116,8 +118,7 @@
 		"semantic-release": "^23.0.2",
 		"start-server-and-test": "^2.0.11",
 		"tailwindcss": "4.1.5",
-		"vitest": "^3.2.4",
-		"eslint-config-next": "15.3.4"
+		"vitest": "^3.2.4"
 	},
 	"name": "nextjsproject-nextjs",
 	"private": true,
