@@ -11,6 +11,10 @@ import { Providers } from "@shared/components/Providers";
 import "./globals.css";
 import "cropperjs/dist/cropper.css";
 
+// Add segment configuration for better performance
+export const dynamic = "force-static";
+export const revalidate = 3600; // Revalidate every hour
+
 export const metadata: Metadata = {
 	title: {
 		absolute: config.appName,
@@ -30,8 +34,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 			>
 				<Providers initialConsent={consentCookie?.value === "true"}>
 					{children}
+					<SpeedInsights />
 				</Providers>
-				<SpeedInsights />
 			</body>
 		</html>
 	);

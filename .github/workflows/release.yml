@@ -3,10 +3,19 @@ name: Release
 on:
   push:
     branches: [ main ]
-
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.txt'
+      - '.gitignore'
+      - 'docs/**'
+      
 jobs:
   release:
     name: Release
+    # Skip deploy preview if PR is draft
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     permissions:
       contents: write
