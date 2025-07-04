@@ -59,7 +59,7 @@
 		}
 	},
 	"dependencies": {
-		"@ai-sdk/react": "^1.2.11",
+		"@ai-sdk/react": "^1.2.12",
 		"@types/uuid": "^10.0.0",
 		"import-in-the-middle": "^1.14.2",
 		"require-in-the-middle": "^7.5.2",
